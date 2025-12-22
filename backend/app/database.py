@@ -1,9 +1,13 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+from dotenv import load_dotenv
 
-DATABSE_URL = "postgresql://postgres:Joshua10!@localhost:5432/jiralite"
+load_dotenv()
 
-engine = create_engine(DATABSE_URL)
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+engine = create_engine(DATABASE_URL)
 
 SesionLocal = sessionmaker(
   autocommit=False,
