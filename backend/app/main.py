@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.database import engine
 from app.models import issue
-from app.routes import issues
+from app.routes import issues_router, auth_router
 
 app = FastAPI()
 
@@ -12,4 +12,5 @@ def health_check():
 
 issue.Base.metadata.create_all(bind=engine)
 
-app.include_router(issues.router)
+app.include_router(issues_router)
+app.include_router(auth_router)

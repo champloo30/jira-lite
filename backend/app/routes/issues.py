@@ -3,8 +3,8 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 
 from app.database import SessionLocal
-from app.models.issue import Issue
-from app.schemas.issue import IssueCreate, IssueResponse, IssueUpdate
+from app.models import Issue
+from app.schemas import IssueCreate, IssueResponse, IssueUpdate
 
 router = APIRouter(
   prefix="/issues",
