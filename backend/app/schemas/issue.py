@@ -16,6 +16,16 @@ class Config:
 
 class IssueUpdate(BaseModel):
   title: Optional[str]
-  descriptional: Optional[str]
+  description: Optional[str]
   status: Optional[str]
 
+class IssueOut(BaseModel):
+  id: int
+  title: str
+  description: str
+  status: str
+  created_by: int
+  assigned_to: int | None
+
+  class Config:
+    from_attributes = True
